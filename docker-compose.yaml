@@ -1,0 +1,195 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo 
+    volumes:
+      - C:\Users\gpere\Desktop\Docker-compose-data:/data/db
+    restart: always
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    networks:
+      - 'dockernetflix-network'
+  servicio-eureka-server:
+    image: servicio-eureka-server:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: servicio-eureka-server
+    ports:
+      - '8761:8761'
+    networks:
+      - 'dockernetflix-network'
+  servicio-zuul-server:
+    image: servicio-zuul-server:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: servicio-zuul-server
+    ports:
+      - '9090:9090'
+    networks:
+      - 'dockernetflix-network'
+  config-server:
+    image: config-server:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: config-server
+    ports:
+      - '8889:8889'
+    networks:
+      - 'dockernetflix-network'
+  ms-customer:
+    image: ms-customer:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-customer
+    networks:
+      - 'dockernetflix-network'
+  ms-profile:
+    image: ms-profile:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-profile
+    networks:
+      - 'dockernetflix-network'     
+  ms-client-customer:
+    image: ms-client-customer:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-customer
+    networks:
+      - 'dockernetflix-network' 
+  ms-saving-account:
+    image: ms-saving-account:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-saving-account
+    networks:
+      - 'dockernetflix-network' 
+  ms-saving-account-transaction:
+    image: ms-saving-account-transaction:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-saving-account-transaction
+    networks:
+      - 'dockernetflix-network' 
+  ms-client-saving-account:
+    image: ms-client-saving-account:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-saving-account
+    networks:
+      - 'dockernetflix-network' 
+  ms-client-saving-account-transaction:
+    image: ms-client-saving-account-transaction:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-saving-account-transaction
+    networks:
+      - 'dockernetflix-network'  
+
+  ms-current-account:
+    image: ms-current-account:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-current-account
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-current-account:
+    image: ms-client-current-account:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-current-account
+    networks:
+      - 'dockernetflix-network'  
+   
+  ms-transaction-current-account:
+    image: ms-transaction-current-account:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-transaction-current-account
+    networks:
+      - 'dockernetflix-network'
+
+  ms-client-transaction-current-account:
+    image: ms-client-transaction-current-account:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-transaction-current-account
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-fixed-term:
+    image: ms-fixed-term:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-fixed-term
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-fixed-term:
+    image: ms-client-fixed-term:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-fixed-term
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-fixed-term-transaction:
+    image: ms-fixed-term-transaction:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-fixed-term-transaction
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-transaction-fixed-term:
+    image: ms-client-transaction-fixed-term:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-transaction-fixed-term
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-creditcard:
+    image: ms-creditcard:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-creditcard
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-creditcard:
+    image: ms-client-creditcard:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-creditcard
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-credit-pay:
+    image: ms-credit-pay:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-credit-pay
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-credit-pay:
+    image: ms-client-credit-pay:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-credit-pay
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-credit-charge:
+    image: ms-credit-charge:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-credit-charge
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-credit-charge:
+    image: ms-client-credit-charge:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-credit-charge
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-transfer-bank:
+    image: ms-transfer-bank:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-transfer-bank
+    networks:
+      - 'dockernetflix-network'     
+
+  ms-client-transfer-bank:
+    image: ms-client-transfer-bank:v1 #nombre de la imagen que hemos creado
+    restart: always
+    container_name: ms-client-transfer-bank
+    networks:
+      - 'dockernetflix-network'     
+
+
+networks:
+  dockernetflix-network: #necesitamos crear en una red para alojar los servicios en ella y que puedan comunicarse entre sí
+ 
